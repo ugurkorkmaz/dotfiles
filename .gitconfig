@@ -1,0 +1,35 @@
+# User configuration
+[user]
+  name = username
+  email = <user>@email.ltd
+
+[color]
+  # Enable colors in color-supporting terminals
+  ui = auto
+
+# Command shortcuts
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+
+  # Display tree-like log because the default log is cumbersome...
+  lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+
+  # Useful when you have to update your last commit with staged files without editing the commit message.
+  oops = commit --amend --no-edit
+
+# Core repository settings
+[core]
+  # Don't paginate output by default
+  pager = cat
+  # Global ignore file (not shared)
+  excludesfile = ~/.gitignore_global
+  # VSCode  
+  editor = code --wait  
+  # Don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
+
+[init]
+    # Set the default branch name to "main"
+	defaultBranch = main
