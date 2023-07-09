@@ -34,5 +34,5 @@ export PATH="$PNPM_HOME:$PATH"
 # docker
 alias tinygo='docker run --rm -v "$(pwd):/src" -w /src tinygo/tinygo:0.27.0 tinygo'
 alias ffmpeg='docker run --rm -v "$(pwd):/config" linuxserver/ffmpeg'
-alias rust='docker run --rm --user "$(id -u)":"$(id -g)" -v "$PWD":/usr/src/myapp -w /usr/src/myapp rust:1.23.0'
+alias pack='docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace buildpacksio/pack:latest'
 # docker end
