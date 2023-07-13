@@ -28,7 +28,10 @@ export PATH=$PATH:$HOME/go/bin
 
 # pnpm
 export PNPM_HOME="/home/ugur/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # docker
@@ -36,5 +39,3 @@ alias tinygo='docker run --rm -v "$(pwd):/src" -w /src tinygo/tinygo:0.27.0 tiny
 alias ffmpeg='docker run --rm -v "$(pwd):/config" linuxserver/ffmpeg'
 alias pack='docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace buildpacksio/pack:latest'
 # docker end
-
-. $(pack completion --shell zsh)
