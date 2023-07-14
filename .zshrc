@@ -15,7 +15,7 @@ ZSH_THEME="geoffgarside"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git docker heroku)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,4 +38,5 @@ esac
 alias tinygo='docker run --rm -v "$(pwd):/src" -w /src tinygo/tinygo:0.27.0 tinygo'
 alias ffmpeg='docker run --rm -v "$(pwd):/config" linuxserver/ffmpeg'
 alias pack='docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace buildpacksio/pack:latest'
+alias buf='docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf'
 # docker end
