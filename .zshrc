@@ -21,6 +21,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+function clone() {
+  git clone "$1"
+}
+
 # golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
@@ -38,5 +42,22 @@ esac
 alias tinygo='docker run --rm -v "$(pwd):/src" -w /src tinygo/tinygo:0.27.0 tinygo'
 alias ffmpeg='docker run --rm -v "$(pwd):/config" linuxserver/ffmpeg'
 alias pack='docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace buildpacksio/pack:latest'
-alias buf='docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf'
 # docker end
+
+# proxy
+alias proxy_start='docker run -d --name tor -p 9050:9050 ugurkorkmaz/proxy:latest'
+alias proxy_stop='docker stop tor && docker rm tor'
+alias secure='chromium-browser --proxy-server="socks5://127.0.0.1:9050" --incognito'
+# proxy end
+
+# symfony 
+export PATH="$HOME/.symfony5/bin:$PATH"
+# symfony end
+
+# tools
+applications=("minikube" "kubectl" "helm" "k3d" "buf")
+
+for app in "${applications[@]}"; do
+    source <($app completion zsh)
+done
+# tools end
