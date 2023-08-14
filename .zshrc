@@ -44,12 +44,6 @@ alias ffmpeg='docker run --rm -v "$(pwd):/config" linuxserver/ffmpeg'
 alias pack='docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/workspace -w /workspace buildpacksio/pack:latest'
 # docker end
 
-# proxy
-alias proxy_start='docker run -d --name tor -p 9050:9050 ugurkorkmaz/proxy:latest'
-alias proxy_stop='docker stop tor && docker rm tor'
-alias secure='chromium-browser --proxy-server="socks5://127.0.0.1:9050" --incognito'
-# proxy end
-
 # symfony 
 export PATH="$HOME/.symfony5/bin:$PATH"
 # symfony end
