@@ -55,9 +55,9 @@ export PATH="$HOME/.symfony5/bin:$PATH"
 # symfony end
 
 # tools
-applications=("minikube" "kubectl" "helm" "k3d" "buf")
+tools=("minikube" "kubectl" "helm" "k3d" "buf" "k9s")
 
-for app in "${applications[@]}"; do
+for app in "${tools[@]}"; do
     source <($app completion zsh)
 done
 # tools end
